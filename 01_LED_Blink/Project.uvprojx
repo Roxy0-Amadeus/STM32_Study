@@ -649,9 +649,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Hardware</GroupName>
-        </Group>
-        <Group>
           <GroupName>System</GroupName>
           <Files>
             <File>

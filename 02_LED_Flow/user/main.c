@@ -7,26 +7,29 @@ int main(void)
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	//端口输出模式，这里是推挽输出
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;	//按位或可以选择多个端口，也可以GPIO_Pin_ALL选择全部端口
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-//	GPIO_ResetBits(GPIOA, GPIO_Pin_0);		//置低电平
-	
-//	GPIO_SetBits(GPIOA, GPIO_Pin_0);		//置高电平
-	
-	//GPIO_WritBit可以看成是GPIO_ResetBits和GPIO_ResetBits 的结合体
-	//最后一个参数可以是一个变量
-//	GPIO_WriteBit(GPIOA, GPIO_Pin_0, Bit_RESET);	
-	
-	
 	
 	while(1)
 	{
-		GPIO_WriteBit(GPIOA, GPIO_Pin_0, (BitAction)0);
-		Delay_ms(1000);
-		GPIO_WriteBit(GPIOA, GPIO_Pin_0, (BitAction)1);
-		Delay_ms(500);
+		GPIO_Write(GPIOA, ~0x0001);		//0000 0000 0000 0001
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0002);		//0000 0000 0000 0010
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0004);		//0000 0000 0000 0100
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0008);		//0000 0000 0000 1000
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0010);		//0000 0000 0001 0000
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0020);		//0000 0000 0010 0000
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0040);		//0000 0000 0100 0000
+		Delay_ms(100);
+		GPIO_Write(GPIOA, ~0x0080);		//0000 0000 1000 0000
+		Delay_ms(100);
 	}
 }
