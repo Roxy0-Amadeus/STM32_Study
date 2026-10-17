@@ -16,7 +16,7 @@
 * 库：STM32F10x Standard Peripheral Library
 
 ## 学习进度
-- [√] GPIO 输入输出
+- [x] GPIO 输入输出
 - [ ] EXTI 外部中断 
 - [ ] TIM 定时器
 - [ ] USART 串口通信
