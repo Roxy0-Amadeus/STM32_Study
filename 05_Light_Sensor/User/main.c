@@ -10,8 +10,8 @@ int main(void)
 	while(1)
 	{
 		if(LightSensor_Get())
-			Buzzer_ON();
-		else
 			Buzzer_OFF();
+		else
+			Buzzer_ON();
 	}
 }
