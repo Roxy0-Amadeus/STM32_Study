@@ -9,6 +9,9 @@
 * `03_Buzzer` - 蜂鸣器控制
 * `04_Key_Control` - 按键轮询控制 LED
 * `05_Light_Sensor` - 光敏电阻控制蜂鸣器
+* `06_OLED_Display` - 引入 OLED 驱动库实现基础显示
+* `07_IR_Counting` - 对射式红外传感器 EXTI 中断计次
+* `08_Rotary_Encoder` - 旋转编码器计次（开发中）
 
 ## 开发环境
 * 芯片：STM32F103C8T6
