@@ -14,9 +14,8 @@ int main(void)
 	OLED_ShowString(2, 3, "Num:");
 	OLED_ShowString(3, 3, "CNT :");
 	
-	
 	while(1)
-	{	
+	{
 		uint16_t current_Num = TIM_GetNum();
 		OLED_ShowNum(2, 7, current_Num, 5);
 		OLED_ShowNum(3, 7, Timer_GetCounter(), 5);
