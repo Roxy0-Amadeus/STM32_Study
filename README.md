@@ -12,6 +12,10 @@
 * `06_OLED_Display` - 引入 OLED 驱动库实现基础显示
 * `07_IR_Counting` - 对射式红外传感器 EXTI 中断计次
 * `08_Rotary_Encoder` - 旋转编码器计次（开发中）
+* `09_TIM_Base_Interrupt` - TIM 基础定时器中断闪灯
+* `10_TIM_ExternalClock` - TIM 外部时钟模式与红外对射计数
+* `11_PWM_LED_Breath` - TIM 输出比较与 PWM 呼吸灯调制
+* `12_PWM_Key_Control` - 基于按键控制的 PWM 动态调光
 
 ## 开发环境
 * 芯片：STM32F103C8T6
@@ -20,7 +24,8 @@
 
 ## 学习进度
 - [x] GPIO 输入输出
-- [ ] EXTI 外部中断 
-- [ ] TIM 定时器
+- [x] EXTI 外部中断
+- [x] TIM 定时器 (中断、外部时钟、PWM)
 - [ ] USART 串口通信
+- [ ] ADC 模数转换
 - [ ] I2C / SPI 通信
