@@ -4,10 +4,21 @@
 #include "PWM.h"
 #include "Key.h"
 
-uint8_t i = 0;
-uint8_t Key_State = 0;
-uint8_t LED_Out(void);
+#define DUTY_STEP 10
+#define DUTY_MAX  100
 
+uint8_t pwm_duty = 0;
+
+uint8_t Duty_Update(uint8_t current_duty)
+{
+	current_duty += DUTY_STEP;
+		if(current_duty > DUTY_MAX)
+		{
+			current_duty = 0;
+		}
+		return current_duty;
+}
+	
 int main(void)
 {
 	OLED_Init();
@@ -16,19 +27,17 @@ int main(void)
 	
 	OLED_ShowString(1, 1, "Antonio");
 	OLED_ShowString(1, 10, "Amadeus");
+	OLED_ShowNum(2, 1, pwm_duty, 3);
 	
-	PWM_SetCompare1(i);
+	PWM_SetCompare1(pwm_duty);
+	
 	while(1)
 	{
 		if(Key_GetNum() == 1)
 		{	
-			i += 10;
-			if(i >= 100)
-			{
-				i = 0;
-			}
-			PWM_SetCompare1(i);
+			pwm_duty = Duty_Update(pwm_duty);
+			PWM_SetCompare1(pwm_duty);
+			OLED_ShowNum(2, 1, pwm_duty, 3);
 		}
-		OLED_ShowNum(2, 1, i, 3);
 	}
 }

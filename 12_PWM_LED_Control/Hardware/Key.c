@@ -16,16 +16,36 @@ void Key_Init(void)
 
 uint8_t Key_GetNum(void)
 {
-	Key_Num = 0;
-	if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_15) == 0)
+	uint8_t Key_Val = 0;
+	static uint8_t Key_case = 0;
+	uint8_t Get_Key = GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_15);
+	
+	switch(Key_case)
 	{
-		Delay_ms(50);
-		if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_15) == 0)
-		{
-			while(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_15) == 0);
-			Key_Num = 1;
-		}
-		Delay_ms(50);
+		case 0:
+			if(Get_Key == 0)
+			{
+				Key_case = 1;
+			}
+			break;
+		case 1:
+			if(Get_Key == 0)
+			{
+				Key_Val = 1;
+				Key_case = 2;
+			}
+			else
+			{	
+				Key_case = 0;
+			}
+			break;
+		case 2:
+			if(Get_Key == 1)
+			{	
+				Delay_ms(10);
+				Key_case = 0;
+			}
+			break;
 	}
-	return Key_Num;
+	return Key_Val;
 }

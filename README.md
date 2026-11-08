@@ -11,7 +11,7 @@
 * `05_Light_Sensor` - 光敏电阻控制蜂鸣器
 * `06_OLED_Display` - 引入 OLED 驱动库实现基础显示
 * `07_IR_Counting` - 对射式红外传感器 EXTI 中断计次
-* `08_Rotary_Encoder` - 旋转编码器计次（开发中）
+* `08_Rotary_Encoder` - 旋转编码器计次
 * `09_TIM_Base_Interrupt` - TIM 基础定时器中断闪灯
 * `10_TIM_ExternalClock` - TIM 外部时钟模式与红外对射计数
 * `11_PWM_LED_Breath` - TIM 输出比较与 PWM 呼吸灯调制
