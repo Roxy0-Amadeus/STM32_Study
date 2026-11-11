@@ -13,13 +13,10 @@ int main(void)
 	
 	while(1)
 	{
-		Servo_SetAngle(0);
+		Servo_SetAngle(180);
         Delay_ms(1000);
         
         Servo_SetAngle(90);
-        Delay_ms(1000);
-        
-        Servo_SetAngle(180);
         Delay_ms(1000);
 	}
 }
