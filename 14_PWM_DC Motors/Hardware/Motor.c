@@ -1,8 +1,8 @@
 #include "stm32f10x.h"                  // Device header
 #include "PWM.h"
 
-#define MAX_SPEED 50
-#define MIN_SPEED -50
+#define MAX_SPEED 100
+#define MIN_SPEED -100
 #define SPEED_STEP 10
 
 void Motor_Init(void)
@@ -20,8 +20,8 @@ void Motor_Init(void)
 
 void Motor_SetSpeed(int16_t Speed)
 {	
-	if(Speed > 100) Speed = 100;
-	if(Speed < -100) Speed = -100;
+	if(Speed > MAX_SPEED) Speed = MAX_SPEED;
+	if(Speed < MIN_SPEED) Speed = MIN_SPEED;
 	
 	if(Speed >= 0)
 	{
